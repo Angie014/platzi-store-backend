@@ -1,0 +1,32 @@
+language: node_js
+
+cache:
+  directories:
+    - node_modules
+    - ~/.npm
+
+node_js:
+  - '12'
+
+git:
+  depht: 3
+
+script:
+  - yarn test
+
+notifications:
+  slack: developplatzistore:dLL20auJMdkbPRF8sRn84mbp
+  email:
+    recipients:
+      - angelicamariapena014@gmail.com
+    on_success: always
+    on_failure: always
+
+deploy:
+  provide: heroku
+  skip-cleanup: true
+  keep-history: true
+  api_key: a36fa031-0c4c-430c-88e9-912166ad9122
+  app: platzistorebackend
+  on:
+    repo: Angelica/platzi-store-backend
